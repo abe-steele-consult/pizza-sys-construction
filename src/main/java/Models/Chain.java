@@ -16,19 +16,15 @@ public class Chain {
     //Chain Associations
     private List<Branch> branches;
     private CorpMenu corpMenu;
-    private int minimumNumber;
+    private int minimumNumberOfBranches;
 
     //------------------------
     // CONSTRUCTOR
     //------------------------
 
-    public Chain(CorpMenu aCorpMenu, int minimumNumber) {
+    public Chain(int minimumNumberOfBranches) {
         branches = new ArrayList<Branch>();
-        this.minimumNumber = minimumNumber;
-        if (aCorpMenu == null || aCorpMenu.getChain() != null) {
-            throw new RuntimeException("Unable to create Chain due to aCorpMenu. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
-        }
-        corpMenu = aCorpMenu;
+        this.minimumNumberOfBranches = minimumNumberOfBranches;
     }
 
     //------------------------
@@ -43,6 +39,11 @@ public class Chain {
     public List<Branch> getBranches() {
         List<Branch> branches = Collections.unmodifiableList(this.branches);
         return branches;
+    }
+
+    public boolean setCorpMenu(CorpMenu menu) {
+        this.corpMenu = menu;
+        return true;
     }
 
     public int numberOfBranches() {
@@ -66,8 +67,8 @@ public class Chain {
     }
 
     /* Code from template association_MinimumNumberOfMethod */
-    public int minimumNumberOfBranches() {
-        return this.minimumNumber;
+    public int getMinimumNumberOfBranches() {
+        return this.minimumNumberOfBranches;
     }
 
     /* Code from template association_AddManyToOne */
@@ -145,9 +146,6 @@ public class Chain {
         }
         CorpMenu existingCorpMenu = corpMenu;
         corpMenu = null;
-        if (existingCorpMenu != null) {
-            existingCorpMenu.delete();
-        }
     }
 
     // line 42 "model.ump"

@@ -14,7 +14,6 @@ public class CorpMenu {
     //------------------------
 
     //CorpMenu Associations
-    private Chain chain;
     private final List<Recipe> recipes;
     private final List<BranchMenu> branchMenus;
     private int minimumNumberOfRecipes;
@@ -28,7 +27,6 @@ public class CorpMenu {
             throw new RuntimeException("Unable to create CorpMenu due to aChain. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
         }
         this.minimumNumberOfRecipes = minimumNumberOfRecipes;
-        chain = aChain;
         recipes = new ArrayList<Recipe>();
         branchMenus = new ArrayList<BranchMenu>();
     }
@@ -36,11 +34,6 @@ public class CorpMenu {
     //------------------------
     // INTERFACE
     //------------------------
-    /* Code from template association_GetOne */
-    public Chain getChain() {
-        return chain;
-    }
-
     /* Code from template association_GetMany */
     public Recipe getRecipe(int index) {
         Recipe aRecipe = recipes.get(index);
@@ -233,22 +226,6 @@ public class CorpMenu {
             wasAdded = addBranchMenusAt(aBranchMenus, index);
         }
         return wasAdded;
-    }
-
-    public void delete() {
-        Chain existingChain = chain;
-        chain = null;
-        if (existingChain != null) {
-            existingChain.delete();
-        }
-        for (int i = recipes.size(); i > 0; i--) {
-            Recipe aRecipe = recipes.get(i - 1);
-            aRecipe.delete();
-        }
-        for (int i = branchMenus.size(); i > 0; i--) {
-            BranchMenu aBranchMenus = branchMenus.get(i - 1);
-            aBranchMenus.delete();
-        }
     }
 
     // line 55 "model.ump"
