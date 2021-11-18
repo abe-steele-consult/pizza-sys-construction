@@ -33,12 +33,6 @@ public class CorpMenu {
         branchMenus = new ArrayList<BranchMenu>();
     }
 
-    public CorpMenu(CorpMenu corpMenu) {
-        chain = new Chain(this);
-        recipes = new ArrayList<Recipe>();
-        branchMenus = new ArrayList<BranchMenu>();
-    }
-
     //------------------------
     // INTERFACE
     //------------------------

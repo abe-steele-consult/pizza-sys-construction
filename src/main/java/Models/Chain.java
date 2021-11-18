@@ -31,13 +31,6 @@ public class Chain {
         corpMenu = aCorpMenu;
     }
 
-    public Chain() {
-        branches = new ArrayList<Branch>();
-        corpMenu = new CorpMenu(this.corpMenu);
-    }
-
-    public Chain(CorpMenu corpMenu) {}
-
     //------------------------
     // INTERFACE
     //------------------------
