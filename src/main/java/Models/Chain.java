@@ -1,44 +1,62 @@
 package Models;
 
+import java.util.List;
+
 public class Chain {
 
-	private String managerList;
-	private float totalRevenue;
+	private List<Employee> managerList;
+	private double totalRevenue;
+	private List<Branch> branches;
 
-	public double getTotalRevenue() {
-		// TODO - implement Chain.getTotalRevenue
-		throw new UnsupportedOperationException();
-	}
+	public double getTotalRevenue() { return totalRevenue; }
 
 	/**
-	 * 
+	 *
 	 * @param totalRevenue
 	 */
-	public void setTotalRevenue(double totalRevenue) {
-		// TODO - implement Chain.setTotalRevenue
-		throw new UnsupportedOperationException();
-	}
+	public void setTotalRevenue(double totalRevenue) { this.totalRevenue = totalRevenue; }
 
-	public String getManagerList() {
+	public List<Employee> getManagerList() {
 		return this.managerList;
 	}
 
 	/**
-	 * 
+	 *
 	 * @param managerList
 	 */
-	public void setManagerList(String managerList) {
+	public void setManagerList(List<Employee> managerList) {
 		this.managerList = managerList;
 	}
 
-	public boolean CreateNewBranch() {
-		// TODO - implement Chain.CreateNewBranch
-		throw new UnsupportedOperationException();
+	/**
+	 *
+	 * @param branch
+	 */
+	public boolean createNewBranch(Branch branch) {
+		this.branches.add(branch);
+		return true;
 	}
 
-	public boolean DeleteBranch() {
-		// TODO - implement Chain.DeleteBranch
-		throw new UnsupportedOperationException();
+	/**
+	 *
+	 * @param branchId
+	 */
+	public boolean deleteBranch(int branchId) {
+		Branch removeObject = this.branches.stream().filter(b -> b.getBranchId() == branchId).findAny().orElse(null);
+		this.branches.remove(removeObject);
+		return true;
+	}
+
+	public List<Branch> getBranches() {
+		return this.branches;
+	}
+
+	/**
+	 *
+	 * @param branches
+	 */
+	public void setBranches(List<Branch> branches) {
+		this.branches = branches;
 	}
 
 }

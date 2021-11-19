@@ -7,14 +7,14 @@ public class Branch {
 	private int branchId;
 	private String state;
 	private String city;
-	private float revenue;
+	private double revenue;
 	private List<Employee> employeeList;
 
 	public int getBranchId() {
 		return this.branchId;
 	}
 
-	public float getRevenue() {
+	public double getRevenue() {
 		return this.revenue;
 	}
 
@@ -23,16 +23,19 @@ public class Branch {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param branches
 	 * @param state
 	 * @param city
-	 * @param String
-	 * @param emloyeeList
+	 * @param employeeList
+	 * @param employeeList
 	 */
-	public Branch(List<Branch> branches, String state, int city, int String, List<Employee> emloyeeList) {
-		// TODO - implement Branch.Branch
-		throw new UnsupportedOperationException();
+	public Branch(List<Branch> branches, String state, String city, double revenue, List<Employee> employeeList) {
+		this.branchId = branches.size();
+		this.state = state;
+		this.city = city;
+		this.revenue = revenue != 0.0 ? revenue : 0.0;
+		this.employeeList = employeeList;
 	}
 
 }
