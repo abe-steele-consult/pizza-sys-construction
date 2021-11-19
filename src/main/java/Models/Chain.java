@@ -1,5 +1,6 @@
 package Models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Chain {
@@ -33,6 +34,11 @@ public class Chain {
 	 * @param branch
 	 */
 	public boolean createNewBranch(Branch branch) {
+		if(this.branches == null) {
+			this.branches = new ArrayList<>();
+			this.branches.add(branch);
+			return true;
+		}
 		this.branches.add(branch);
 		return true;
 	}

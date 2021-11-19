@@ -31,7 +31,7 @@ public class Branch {
 	 * @param employeeList
 	 */
 	public Branch(List<Branch> branches, String state, String city, double revenue, List<Employee> employeeList) {
-		this.branchId = branches.size() + 1;
+		this.branchId = branches != null? 1: branches.size() + 1;
 		this.state = state;
 		this.city = city;
 		this.revenue = revenue != 0.0 ? revenue : 0.0;
