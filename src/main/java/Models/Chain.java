@@ -2,12 +2,17 @@ package Models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Chain {
 
 	private List<Employee> managerList;
 	private double totalRevenue;
 	private List<Branch> branches;
+
+	public Chain() {
+		this.branches = new ArrayList();
+	}
 
 	public double getTotalRevenue() { return totalRevenue; }
 
@@ -29,16 +34,14 @@ public class Chain {
 		this.managerList = managerList;
 	}
 
-	/**
-	 *
-	 * @param branch
-	 */
-	public boolean createNewBranch(Branch branch) {
-		if(this.branches == null) {
-			this.branches = new ArrayList<>();
-			this.branches.add(branch);
-			return true;
-		}
+	public boolean createNewBranch() {
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Create New Branch");
+		System.out.println("Enter State");
+		String state = reader.next();
+		System.out.println("Enter city");
+		String city = reader.next();
+		Branch branch = new Branch(this.branches, state, city, 0.0, new ArrayList<>());
 		this.branches.add(branch);
 		return true;
 	}
