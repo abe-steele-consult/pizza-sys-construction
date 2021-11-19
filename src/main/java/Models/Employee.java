@@ -19,8 +19,10 @@ public class Employee {
 	 * @param role
 	 */
 	public Employee(String name, float salary, String type, String role) {
-		// TODO - implement Employee.Employee
-		throw new UnsupportedOperationException();
+		this.name = name;
+		this.salary = salary;
+		this.type = type;
+		this.role = role;
 	}
 
 	/**
@@ -41,4 +43,7 @@ public class Employee {
 		throw new UnsupportedOperationException();
 	}
 
+	public String getName() {
+		return name;
+	}
 }
