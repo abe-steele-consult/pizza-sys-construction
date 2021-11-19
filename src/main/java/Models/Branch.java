@@ -38,4 +38,15 @@ public class Branch {
 		this.employeeList = employeeList;
 	}
 
+	public String getState() {
+		return state;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void addEmployee(Employee employee) {
+		this.employeeList.add(employee);
+	}
 }
