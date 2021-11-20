@@ -29,6 +29,24 @@ public class Employee {
 		this.role = role;
 	}
 
+	public void displayOperations(){
+		Scanner input = new Scanner(System.in);
+		System.out.println("Employee Management...");
+		System.out.println("Select from the following options");
+		System.out.println("(1) Clock in");
+		System.out.println("(2) Clock out");
+		int option = input.nextInt();
+
+		switch (option) {
+			case 1:
+				this.clockIn();
+				break;
+			case 2:
+				this.clockOut();
+				break;
+		}
+	}
+
 //	public void createNewEmployee(Branch branch, Chain chain){
 //		System.out.println("Creating a new Employee...");
 //		Scanner input = new Scanner(System.in);

@@ -53,10 +53,32 @@ public class Chain {
 		}
 	}
 
-	public void viewManager(){
+	public void viewManagers(){
 		System.out.println("Managers:");
 		for(int i = 0; i < managerList.size(); i++){
 			System.out.println(managerList.get(i).getName());
+		}
+	}
+
+	public void displayOperations(){
+		Scanner input = new Scanner(System.in);
+		System.out.println("Chain Management...");
+		System.out.println("Select from the following options");
+		System.out.println("(1) Create a new branch");
+		System.out.println("(2) View branches");
+		System.out.println("(3) View Managers");
+		int option = input.nextInt();
+
+		switch (option) {
+			case 1:
+				this.createNewBranch();
+				break;
+			case 2:
+				this.viewBranches();
+				break;
+			case 3:
+				this.viewManagers();
+				break;
 		}
 	}
 

@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.Date;
+import java.util.List;
 
 public class Order {
 
@@ -13,6 +14,7 @@ public class Order {
 	private String customerPhoneNumber;
 	private String type;
 	private String order;
+	private List<Recipe> recipeList;
 
 	/**
 	 * 
