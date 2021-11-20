@@ -18,7 +18,7 @@ public class Chain {
 
 	/**
 	 *
-	 * @param totalRevenue
+	 * @param totalRevenue Annual Revenue of chain
 	 */
 	public void setTotalRevenue(double totalRevenue) { this.totalRevenue = totalRevenue; }
 
@@ -28,7 +28,7 @@ public class Chain {
 
 	/**
 	 *
-	 * @param managerList
+	 * @param managerList List of Manager Employees
 	 */
 	public void setManagerList(List<Employee> managerList) {
 		this.managerList = managerList;
@@ -46,9 +46,23 @@ public class Chain {
 		return true;
 	}
 
+	public void viewBranches(){
+		System.out.println("Branches:");
+		for(int i = 0; i < branches.size(); i++){
+			System.out.println(branches.get(i).getState() + ", " + branches.get(i).getCity());
+		}
+	}
+
+	public void viewManager(){
+		System.out.println("Managers:");
+		for(int i = 0; i < managerList.size(); i++){
+			System.out.println(managerList.get(i).getName());
+		}
+	}
+
 	/**
 	 *
-	 * @param branchId
+	 * @param branchId id of branch to be deleted
 	 */
 	public boolean deleteBranch(int branchId) {
 		Branch removeObject = this.branches.stream().filter(b -> b.getBranchId() == branchId).findAny().orElse(null);
@@ -62,7 +76,7 @@ public class Chain {
 
 	/**
 	 *
-	 * @param branches
+	 * @param branches list of branches
 	 */
 	public void setBranches(List<Branch> branches) {
 		this.branches = branches;
