@@ -29,7 +29,7 @@ public class Employee {
 		this.role = role;
 	}
 
-	public Employee createNewEmployee(Branch branch){
+	public void createNewEmployee(Branch branch, Chain chain){
 		System.out.println("Creating a new Employee...");
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter the Employee's name");
@@ -41,8 +41,11 @@ public class Employee {
 		System.out.println("Creating Employee's role");
 		String newRole = input.next();
 		Employee newEmployee = new Employee(newName, newSalary, newType, newRole);
+		branch.addEmployee(newEmployee);
 
-		return newEmployee;
+		if (newEmployee.type.equals("Manager")){
+			chain.getManagerList().add(newEmployee);
+		}
 	}
 
 	public boolean clockIn() {
