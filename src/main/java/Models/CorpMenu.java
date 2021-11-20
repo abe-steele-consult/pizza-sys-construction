@@ -1,6 +1,8 @@
 package Models;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class CorpMenu {
 
@@ -10,11 +12,17 @@ public class CorpMenu {
 		return this.recipes;
 	}
 
-	/**
-	 *
-	 * @param recipe
-	 */
-	public boolean addRecipe(Recipe recipe) {
+	public boolean addRecipe() {
+		System.out.println("Add Recipe to corp");
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Enter recipe name");
+		String name = reader.next();
+		System.out.println("Enter recipe price");
+		float price = reader.nextFloat();
+		System.out.println("Enter recipe ingredients");
+		List<Ingredient> ingredients = captureRecipeIngredients();
+
+		Recipe recipe = new Recipe(name, price, null, ingredients);
 		try {
 			if (this.recipes.contains(recipe)) {
 				throw new Exception("Recipe exists.");
@@ -34,11 +42,11 @@ public class CorpMenu {
 		return this.recipes.stream().filter(r -> r.getName() == name).findAny().orElse(null);
 	}
 
-	/**
-	 *
-	 * @param recipeName
-	 */
-	public boolean removeRecipe(String recipeName) throws Exception {
+	public boolean removeRecipe() throws Exception {
+		System.out.println("Remove recipe");
+		System.out.println("Enter recipe name");
+		Scanner reader = new Scanner(System.in);
+		String recipeName = reader.next();
 		Recipe recipeToRemove = this.recipes.stream().filter(r -> r.getName() == recipeName).findFirst().orElse(null);
 		if(recipeToRemove == null) {
 			throw new Exception("Recipe exists already.");
@@ -49,6 +57,26 @@ public class CorpMenu {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	private List<Ingredient> captureRecipeIngredients() {
+		int addIngredientOption = 1;
+		List<Ingredient> ingredients = new ArrayList<>();
+		Scanner reader = new Scanner(System.in);
+		while (addIngredientOption == 1) {
+			System.out.println("Enter ingredient");
+			System.out.println("Enter name");
+			String name = reader.next();
+			System.out.println("Enter quantity needed for recipe");
+			int count = reader.nextInt();
+			Ingredient ingredient = new Ingredient(name, count, 0);
+			ingredients.add(ingredient);
+
+			System.out.println("Do you wish to add a new ingredient? (1) Yes | (2) No");
+			addIngredientOption = reader.nextInt();
+		}
+		reader.close();
+		return ingredients;
 	}
 
 }
