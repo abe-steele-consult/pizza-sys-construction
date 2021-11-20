@@ -68,4 +68,32 @@ public class BranchMenu {
 		return corpRecipeToAdd;
 	}
 
+	public void displayOperations(CorpMenu corpMenu) {
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Welcome to branch menu for branch");
+		System.out.println("Please select the option you desire to perform on this branch menu.");
+		System.out.println("(1) Get menu items");
+		System.out.println("(2) Add recipe");
+		System.out.println("(3) Remove recipe");
+		int option = reader.nextInt();
+
+		switch (option) {
+			case 1:
+				this.menuItems.stream().forEach(i -> {
+					System.out.println(i.getName());
+				});
+				break;
+			case 2:
+				this.addRecipe(corpMenu);
+				break;
+			case 3:
+				this.removeRecipe(corpMenu);
+				break;
+			default:
+				System.out.println("Not an option");
+				break;
+		}
+
+		reader.close();
+	}
 }

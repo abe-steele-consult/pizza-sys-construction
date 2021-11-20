@@ -68,4 +68,39 @@ public class Branch {
 
 		reader.close();
 	}
+
+	public void displayOperations() {
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Welcome to branch management for branch: " + this.branchId);
+		System.out.println("Please select the option you desire to perform on this branch.");
+		System.out.println("(1) Get state");
+		System.out.println("(2) Get city");
+		System.out.println("(3) Add employee");
+		System.out.println("(4) Get employee list.");
+		int option = reader.nextInt();
+
+		switch (option) {
+			case 1:
+				System.out.println(this.getState());
+				break;
+			case 2:
+				System.out.println(this.getCity());
+				break;
+			case 3:
+				this.addEmployee();
+				break;
+			case 4:
+				this.getEmployeeList().stream().forEach(e -> {
+					System.out.println("Employee: " + e.getName());
+					System.out.println("Role: " + e.getRole());
+					System.out.println("Type: " + e.getType());
+				});
+				break;
+			default:
+				System.out.println("Not an option");
+				break;
+		}
+
+		reader.close();
+	}
 }

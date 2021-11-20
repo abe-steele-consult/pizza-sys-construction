@@ -2,6 +2,7 @@ package Models;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Recipe {
 
@@ -46,4 +47,42 @@ public class Recipe {
 		}
 	}
 
+	public void displayOperations() {
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Welcome to recipe operations");
+		System.out.println("Please select the option you desire to perform on this recipe.");
+		System.out.println("(1) Get name");
+		System.out.println("(2) Get ingredients");
+		System.out.println("(3) Get price");
+		System.out.println("(4) Delete");
+		int option = reader.nextInt();
+
+		switch (option) {
+			case 1:
+				System.out.println(this.getName());
+				break;
+			case 2:
+				this.ingredients.stream().forEach(e -> {
+					System.out.println("Ingredient: " + e.getName());
+					System.out.println("Needed: " + e.getCount());
+					System.out.println("Avg. Price: " + e.getPrice());
+				});
+				break;
+			case 3:
+				System.out.println(this.getPrice());
+				break;
+			case 4:
+				if (this.setDeleted() == true) {
+					System.out.println("Recipe Deleted");
+				} else {
+					System.out.println("Not deleted");
+				}
+				break;
+			default:
+				System.out.println("Not an option");
+				break;
+		}
+
+		reader.close();
+	}
 }
