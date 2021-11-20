@@ -7,8 +7,8 @@ public class Recipe {
 
 	private String name;
 	private List<Ingredient> ingredients;
-	private int price;
-	private int deleted;
+	private float price;
+	private Date deleted;
 
 	/**
 	 *
@@ -18,8 +18,10 @@ public class Recipe {
 	 * @param ingredients
 	 */
 	public Recipe(String name, float price, Date deleted, List<Ingredient> ingredients) {
-		// TODO - implement Recipe.Recipe
-		throw new UnsupportedOperationException();
+		this.name = name;
+		this.price = price;
+		this.deleted = null;
+		this.ingredients = ingredients;
 	}
 
 	public String getName() {
@@ -27,18 +29,21 @@ public class Recipe {
 	}
 
 	public List<Ingredient> getIngredients() {
-		// TODO - implement Recipe.getIngredients
-		throw new UnsupportedOperationException();
+		return this.ingredients;
 	}
 
 	public float getPrice() {
-		// TODO - implement Recipe.getPrice
-		throw new UnsupportedOperationException();
+		return this.price;
 	}
 
 	public boolean setDeleted() {
-		// TODO - implement Recipe.setDeleted
-		throw new UnsupportedOperationException();
+		try {
+			deleted = new Date();
+			return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 }

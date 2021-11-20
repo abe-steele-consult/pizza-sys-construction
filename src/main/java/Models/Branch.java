@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Branch {
 
@@ -46,7 +47,25 @@ public class Branch {
 		return city;
 	}
 
-	public void addEmployee(Employee employee) {
+	public void addEmployee() {
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Add Employee to branch " + this.branchId);
+		System.out.println("Enter name");
+		String name = reader.next();
+
+		System.out.println("Enter salary");
+		float salary = reader.nextFloat();
+
+		System.out.println("Enter type");
+		String type = reader.next();
+
+		System.out.println("Enter role");
+		String role = reader.next();
+
+
+		Employee employee = new Employee(name, salary, type, role);
 		this.employeeList.add(employee);
+
+		reader.close();
 	}
 }
