@@ -13,6 +13,7 @@ public class Branch {
 	private List<Employee> employeeList;
 	private Stock stockroom;
 	private List<Order> pastOrders= new ArrayList<Order>();
+	private BranchMenu menu=new BranchMenu();
 
 
 	public int getBranchId() {
@@ -71,7 +72,7 @@ public class Branch {
 		this.employeeList.add(employee);
 	}
 
-	public void displayOperations() {
+	public void displayOperations(CorpMenu corpMenu) {
 		Scanner reader = new Scanner(System.in);
 		System.out.println("Welcome to branch management for branch: " + this.branchId);
 		System.out.println("Please select the option you desire to perform on this branch.");
@@ -81,6 +82,7 @@ public class Branch {
 		System.out.println("(4) Get employee list.");
 		System.out.println("(5) manage stockroom");
 		System.out.println("(6) make an order");
+		System.out.println("(7) manage Branch menu");
 		int option = reader.nextInt();
 
 		switch (option) {
@@ -95,6 +97,9 @@ public class Branch {
 			case 5 -> stockroom.displayOperations();
 			case 6 ->{
 				pastOrders.add(Order.emptyOrder().runSM(stockroom));
+			}
+			case 7 ->{
+				menu.displayOperations(corpMenu);
 			}
 			default -> System.out.println("Not an option");
 		}

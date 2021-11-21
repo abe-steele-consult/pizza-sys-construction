@@ -28,7 +28,7 @@ public class PizzaMain {
                         System.out.println("No branches yet please add a new branch in chain options");
                         break;
                     }
-                    getBranchToManage().displayOperations();
+                    getBranchToManage().displayOperations(corpMenu);
                     break;
                 }
                 case 4 -> {
