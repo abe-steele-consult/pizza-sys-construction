@@ -94,6 +94,7 @@ public class Stock {
 		System.out.println("(1) Get stock");
 		System.out.println("(2) Add ingredient");
 		System.out.println("(3) Remove ingredient");
+		System.out.println("(4) find low ingredients");
 		int option = reader.nextInt();
 		String name;
 		List<Ingredient> ingredients;
@@ -129,6 +130,13 @@ public class Stock {
 							availableIngredients.put(i, curr);
 						}
 					}
+				}
+			}
+			case 4 ->{
+				System.out.println("the low ingredients are:");
+				List<Ingredient> low=getlowStock();
+				for (Ingredient i:low){
+					System.out.println(i.getName()+"at a count of:"+availableIngredients.get(i));
 				}
 			}
 			default -> System.out.println("Not an option");
