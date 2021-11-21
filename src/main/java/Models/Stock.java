@@ -117,7 +117,7 @@ public class Stock {
 			case 3 -> {
 				System.out.println("what is the name of the ingredient");
 				name = reader.next();
-				System.out.println("how many are you removeing");
+				System.out.println("how many are you removing");
 				option = reader.nextInt();
 				ingredients = new ArrayList<Ingredient>(availableIngredients.keySet());
 				for (Ingredient i : ingredients) {

@@ -41,7 +41,7 @@ public class Order {
 		this.orderId=ThreadLocalRandom.current().nextInt();
 	}
 
-	public static Order emptyOrder(){
+	/*public static Order emptyOrder(){
 		Scanner reader = new Scanner(System.in);
 		System.out.println("what is the employeeID");
 		int employeeId=reader.nextInt();
@@ -52,7 +52,7 @@ public class Order {
 		System.out.println("what is the order type(delivery,pickup, inhouse)");
 		String type=reader.next();
 		return new Order(employeeId,customerName,customerPhoneNumber,type,new ArrayList<>());
-	}
+	} */
 	/**
 	 * 
 	 * @param customerName whos order we wish to cancel

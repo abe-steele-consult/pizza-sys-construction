@@ -90,20 +90,12 @@ public class CorpMenu {
 		int option = reader.nextInt();
 
 		switch (option) {
-			case 1:
-				this.recipes.stream().forEach(i -> {
-					System.out.println(i.getName());
-				});
-				break;
-			case 2:
-				this.addRecipe();
-				break;
-			case 3:
-				this.removeRecipe();
-				break;
-			default:
-				System.out.println("Not an option");
-				break;
+			case 1 -> this.recipes.stream().forEach(i -> {
+				System.out.println(i.getName());
+			});
+			case 2 -> this.addRecipe();
+			case 3 -> this.removeRecipe();
+			default -> System.out.println("Not an option");
 		}
 	}
 }

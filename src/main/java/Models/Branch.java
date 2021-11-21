@@ -10,6 +10,8 @@ public class Branch {
 	private String city;
 	private double revenue;
 	private List<Employee> employeeList;
+	private Stock stockroom;
+
 
 	public int getBranchId() {
 		return this.branchId;
@@ -36,6 +38,7 @@ public class Branch {
 		this.city = city;
 		this.revenue = revenue != 0.0 ? revenue : 0.0;
 		this.employeeList = employeeList;
+		this.stockroom= Stock.EmptyStock();
 	}
 
 	public String getState() {
@@ -74,29 +77,29 @@ public class Branch {
 		System.out.println("(2) Get city");
 		System.out.println("(3) Add employee");
 		System.out.println("(4) Get employee list.");
+		System.out.println("(6) manage stockroom");
 		int option = reader.nextInt();
 
 		switch (option) {
-			case 1:
-				System.out.println(this.getState());
-				break;
-			case 2:
-				System.out.println(this.getCity());
-				break;
-			case 3:
-				this.addEmployee();
-				break;
-			case 4:
-				this.getEmployeeList().stream().forEach(e -> {
-					System.out.println("Employee: " + e.getName());
-					System.out.println("Role: " + e.getRole());
-					System.out.println("Type: " + e.getType());
-				});
-				break;
-			default:
-				System.out.println("Not an option");
-				break;
+			case 1 -> System.out.println(this.getState());
+			case 2 -> System.out.println(this.getCity());
+			case 3 -> this.addEmployee();
+			case 4 -> this.getEmployeeList().stream().forEach(e -> {
+				System.out.println("Employee: " + e.getName());
+				System.out.println("Role: " + e.getRole());
+				System.out.println("Type: " + e.getType());
+			});
+			case 5 -> stockroom.displayOperations();
+			default -> System.out.println("Not an option");
 		}
 
+	}
+
+	public Stock getStockroom() {
+		return stockroom;
+	}
+
+	public void setStockroom(Stock stockroom) {
+		this.stockroom = stockroom;
 	}
 }
