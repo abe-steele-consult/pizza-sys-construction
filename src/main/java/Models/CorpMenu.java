@@ -24,9 +24,6 @@ public class CorpMenu {
 
 		Recipe recipe = new Recipe(name, price,  ingredients);
 		try {
-			if (this.recipes.contains(recipe)) {
-				throw new Exception("Recipe exists.");
-			}
 			this.recipes.add(recipe);
 			return true;
 		} catch (Exception e) {
