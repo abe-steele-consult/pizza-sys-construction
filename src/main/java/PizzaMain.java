@@ -17,6 +17,7 @@ public class PizzaMain {
             System.out.println("(1) Chain options");
             System.out.println("(2) Corp Menu options");
             System.out.println("(3) Branch options");
+            System.out.println("(4) Employee options");
             Scanner scanner = new Scanner(System.in);
             int option = scanner.nextInt();
             switch(option) {
@@ -29,6 +30,19 @@ public class PizzaMain {
                     }
                     getBranchToManage().displayOperations();
                     break;
+                }
+                case 4 -> {
+                    System.out.println("Enter employee name:");
+                    String nameEntry = scanner.next();
+
+                    for (int i = 0; i < chain.getBranches().size(); i++){
+                        for (int j = 0; j < chain.getBranches().get(i).getEmployeeList().size(); j++){
+                            if (chain.getBranches().get(i).getEmployeeList().get(j).getName().equals(nameEntry)){
+                                chain.getBranches().get(i).getEmployeeList().get(j).displayOperations();
+                            }
+                        }
+                    }
+                    System.out.println("Employee not found");
                 }
                 default -> System.out.println("Not an option");
             }

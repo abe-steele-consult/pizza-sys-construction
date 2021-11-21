@@ -69,7 +69,8 @@ public class Employee {
 	public boolean clockIn() {
 		this.inTime = LocalTime.now();
 
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return true;
 	}
 
 	public boolean clockOut() {
@@ -79,7 +80,8 @@ public class Employee {
 		Long timeWorkedLong = inTime.until(outTime, MINUTES);
 		this.timeWorked = timeWorkedLong.floatValue();
 
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return true;
 	}
 
 	public String getName() {
