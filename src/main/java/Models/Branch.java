@@ -1,5 +1,6 @@
 package Models;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class Branch {
 	private double revenue;
 	private List<Employee> employeeList;
 	private Stock stockroom;
+	private List<Order> pastOrders= new ArrayList<Order>();
 
 
 	public int getBranchId() {
@@ -78,6 +80,7 @@ public class Branch {
 		System.out.println("(3) Add employee");
 		System.out.println("(4) Get employee list.");
 		System.out.println("(5) manage stockroom");
+		System.out.println("(6) make an order");
 		int option = reader.nextInt();
 
 		switch (option) {
@@ -90,6 +93,9 @@ public class Branch {
 				System.out.println("Type: " + e.getType());
 			});
 			case 5 -> stockroom.displayOperations();
+			case 6 ->{
+				pastOrders.add(Order.emptyOrder().runSM(stockroom));
+			}
 			default -> System.out.println("Not an option");
 		}
 
