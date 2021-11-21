@@ -41,14 +41,15 @@ public class CorpMenu {
 		return this.recipes.stream().filter(r -> r.getName() == name).findAny().orElse(null);
 	}
 
-	public boolean removeRecipe() throws Exception {
+	public boolean removeRecipe() {
 		System.out.println("Remove recipe");
 		System.out.println("Enter recipe name");
 		Scanner reader = new Scanner(System.in);
 		String recipeName = reader.next();
 		Recipe recipeToRemove = this.recipes.stream().filter(r -> r.getName() == recipeName).findFirst().orElse(null);
 		if(recipeToRemove == null) {
-			throw new Exception("Recipe exists already.");
+			System.out.println("Recipe exists already.");
+			return false;
 		}
 		try {
 			this.recipes.remove(recipeToRemove);
@@ -76,8 +77,33 @@ public class CorpMenu {
 			System.out.println("Do you wish to add a new ingredient? (1) Yes | (2) No");
 			addIngredientOption = reader.nextInt();
 		}
-		reader.close();
 		return ingredients;
 	}
 
+	public void displayOperations() {
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Welcome to corp menu for your chain");
+		System.out.println("Please select an option.");
+		System.out.println("(1) Get menu items");
+		System.out.println("(2) Add recipe");
+		System.out.println("(3) Remove recipe");
+		int option = reader.nextInt();
+
+		switch (option) {
+			case 1:
+				this.recipes.stream().forEach(i -> {
+					System.out.println(i.getName());
+				});
+				break;
+			case 2:
+				this.addRecipe();
+				break;
+			case 3:
+				this.removeRecipe();
+				break;
+			default:
+				System.out.println("Not an option");
+				break;
+		}
+	}
 }

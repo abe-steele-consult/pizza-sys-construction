@@ -64,7 +64,6 @@ public class BranchMenu {
 		int option = reader.nextInt();
 
 		Recipe corpRecipeToAdd = recipeOptions.get(option);
-		reader.close();
 		return corpRecipeToAdd;
 	}
 
@@ -93,7 +92,5 @@ public class BranchMenu {
 				System.out.println("Not an option");
 				break;
 		}
-
-		reader.close();
 	}
 }

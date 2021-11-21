@@ -53,7 +53,5 @@ public class Recipe {
 			case 3 -> System.out.println(this.getPrice());
 			default -> System.out.println("Not an option");
 		}
-
-		reader.close();
 	}
 }

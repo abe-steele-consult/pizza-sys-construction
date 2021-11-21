@@ -64,8 +64,6 @@ public class Branch {
 
 		Employee employee = new Employee(name, salary, type, role);
 		this.employeeList.add(employee);
-
-		reader.close();
 	}
 
 	public void displayOperations() {
@@ -100,6 +98,5 @@ public class Branch {
 				break;
 		}
 
-		reader.close();
 	}
 }
