@@ -77,7 +77,7 @@ public class Branch {
 		System.out.println("(2) Get city");
 		System.out.println("(3) Add employee");
 		System.out.println("(4) Get employee list.");
-		System.out.println("(6) manage stockroom");
+		System.out.println("(5) manage stockroom");
 		int option = reader.nextInt();
 
 		switch (option) {
