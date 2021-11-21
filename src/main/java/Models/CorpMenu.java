@@ -22,7 +22,7 @@ public class CorpMenu {
 		System.out.println("Enter recipe ingredients");
 		List<Ingredient> ingredients = captureRecipeIngredients();
 
-		Recipe recipe = new Recipe(name, price, null, ingredients);
+		Recipe recipe = new Recipe(name, price,  ingredients);
 		try {
 			if (this.recipes.contains(recipe)) {
 				throw new Exception("Recipe exists.");
@@ -33,7 +33,6 @@ public class CorpMenu {
 			return false;
 		}
 	}
-
 	/**
 	 *
 	 * @param name
@@ -69,8 +68,10 @@ public class CorpMenu {
 			String name = reader.next();
 			System.out.println("Enter quantity needed for recipe");
 			int count = reader.nextInt();
-			Ingredient ingredient = new Ingredient(name, count, 0);
-			ingredients.add(ingredient);
+			Ingredient ingredient = new Ingredient(name, 0.0);
+			for (int i = 0; i < count; i++) {
+				ingredients.add(ingredient);
+			}
 
 			System.out.println("Do you wish to add a new ingredient? (1) Yes | (2) No");
 			addIngredientOption = reader.nextInt();

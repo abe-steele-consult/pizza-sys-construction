@@ -8,21 +8,18 @@ public class Recipe {
 
 	private String name;
 	private List<Ingredient> ingredients;
-	private float price;
-	private Date deleted;
+	private double price;
 
 	/**
 	 *
-	 * @param name
-	 * @param price
-	 * @param deleted
-	 * @param ingredients
+	 * @param name the name of this good
+	 * @param price the sales price of this good
+	 * @param ingredients the things needed to make this recipe
 	 */
-	public Recipe(String name, float price, Date deleted, List<Ingredient> ingredients) {
-		this.name = name;
-		this.price = price;
-		this.deleted = null;
-		this.ingredients = ingredients;
+	public Recipe(String name, double price, List<Ingredient> ingredients) {
+		this.name=name;
+		this.price=price;
+		this.ingredients=ingredients;
 	}
 
 	public String getName() {
@@ -30,22 +27,13 @@ public class Recipe {
 	}
 
 	public List<Ingredient> getIngredients() {
-		return this.ingredients;
+		return ingredients;
 	}
 
-	public float getPrice() {
-		return this.price;
+	public double getPrice() {
+		return price;
 	}
 
-	public boolean setDeleted() {
-		try {
-			deleted = new Date();
-			return true;
-		}
-		catch (Exception e) {
-			return false;
-		}
-	}
 
 	public void displayOperations() {
 		Scanner reader = new Scanner(System.in);
@@ -54,33 +42,16 @@ public class Recipe {
 		System.out.println("(1) Get name");
 		System.out.println("(2) Get ingredients");
 		System.out.println("(3) Get price");
-		System.out.println("(4) Delete");
 		int option = reader.nextInt();
 
 		switch (option) {
-			case 1:
-				System.out.println(this.getName());
-				break;
-			case 2:
-				this.ingredients.stream().forEach(e -> {
-					System.out.println("Ingredient: " + e.getName());
-					System.out.println("Needed: " + e.getCount());
-					System.out.println("Avg. Price: " + e.getPrice());
-				});
-				break;
-			case 3:
-				System.out.println(this.getPrice());
-				break;
-			case 4:
-				if (this.setDeleted() == true) {
-					System.out.println("Recipe Deleted");
-				} else {
-					System.out.println("Not deleted");
-				}
-				break;
-			default:
-				System.out.println("Not an option");
-				break;
+			case 1 -> System.out.println(this.getName());
+			case 2 -> this.ingredients.stream().forEach(e -> {
+				System.out.println("Ingredient: " + e.getName());
+				System.out.println("Avg. Price: " + e.getPrice());
+			});
+			case 3 -> System.out.println(this.getPrice());
+			default -> System.out.println("Not an option");
 		}
 
 		reader.close();

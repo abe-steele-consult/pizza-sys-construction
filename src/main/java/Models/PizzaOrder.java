@@ -49,10 +49,12 @@ public class PizzaOrder
     {
       case CreateOrder:
         setState(State.WarnUser);
+        System.out.println("out of stock in WarnUser state");
         wasEventProcessed = true;
         break;
       case Preparation:
         setState(State.WarnUser);
+        System.out.println("out of stock in WarnUser state");
         wasEventProcessed = true;
         break;
       default:
@@ -71,6 +73,7 @@ public class PizzaOrder
     {
       case CreateOrder:
         setState(State.Idle);
+        System.out.println("in Idle state, waiting for deque");
         wasEventProcessed = true;
         break;
       default:
@@ -89,6 +92,7 @@ public class PizzaOrder
     {
       case WarnUser:
         setState(State.Final);
+        System.out.println("order completed informing User");
         wasEventProcessed = true;
         break;
       default:
@@ -107,6 +111,7 @@ public class PizzaOrder
     {
       case Idle:
         setState(State.Idle);
+        System.out.println("not cooking yet still idle");
         wasEventProcessed = true;
         break;
       default:
@@ -125,6 +130,7 @@ public class PizzaOrder
     {
       case Idle:
         setState(State.Preparation);
+        System.out.println("entering Preparation state");
         wasEventProcessed = true;
         break;
       default:
@@ -143,6 +149,7 @@ public class PizzaOrder
     {
       case Preparation:
         setState(State.OrderType);
+        System.out.println("cheaking order type");
         wasEventProcessed = true;
         break;
       default:
@@ -161,6 +168,7 @@ public class PizzaOrder
     {
       case OrderType:
         setState(State.WaiterNotification);
+        System.out.println("telling waiter to deliver to table");
         wasEventProcessed = true;
         break;
       default:
@@ -179,6 +187,7 @@ public class PizzaOrder
     {
       case OrderType:
         setState(State.DriverNotification);
+        System.out.println("telling driver to deliver to site");
         wasEventProcessed = true;
         break;
       default:
@@ -197,6 +206,7 @@ public class PizzaOrder
     {
       case OrderType:
         setState(State.CustomerNotification);
+        System.out.println("telling customer to deliver order is ready for pick up");
         wasEventProcessed = true;
         break;
       default:
