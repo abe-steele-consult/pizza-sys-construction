@@ -8,7 +8,8 @@ public class Stock {
 	private int lowStockThreshold;
 
 	public Stock(){
-
+	this.availableIngredients=new HashMap<>();
+	this.lowStockThreshold=5;
 	}
 	public List<Ingredient> getAvailableIngredients() {
 		return new ArrayList<Ingredient>(availableIngredients.keySet());
