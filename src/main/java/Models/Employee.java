@@ -24,7 +24,7 @@ public class Employee {
 	 */
 	public Employee(String name, float salary, String type, String role) {
 		this.name = name;
-		this.salary = salary;
+		this.setSalary( salary);
 		this.type = type;
 		this.role = role;
 	}
