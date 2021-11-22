@@ -38,10 +38,30 @@ public class Chain {
 		Scanner reader = new Scanner(System.in);
 		System.out.println("Create New Branch");
 		System.out.println("Enter State");
-		String state = reader.next();
+		String state = reader.nextLine();
 		System.out.println("Enter city");
-		String city = reader.next();
-		Branch branch = new Branch(this.branches, state, city, 0.0, new ArrayList<>());
+		String city = reader.nextLine();
+
+		System.out.println("Enter manager name");
+		String name = reader.nextLine();
+		System.out.println("Enter manager salary");
+		float salary = reader.nextFloat();
+
+		String type = Employee.employeeTypes.manager.name();
+
+		Employee manager = new Employee(name, salary, type, type);
+		List<Employee> employees = new ArrayList<>();
+		employees.add(manager);
+		Branch branch = new Branch(this.branches, state, city, 0.0, employees , manager);
+
+		if (this.managerList == null) {
+			this.managerList = new ArrayList<>();
+		}
+		if (this.branches == null) {
+			this.branches = new ArrayList<>();
+		}
+
+		this.managerList.add(manager);
 		this.branches.add(branch);
 		return true;
 	}
@@ -103,5 +123,4 @@ public class Chain {
 	public void setBranches(List<Branch> branches) {
 		this.branches = branches;
 	}
-
 }

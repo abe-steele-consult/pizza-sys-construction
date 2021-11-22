@@ -16,7 +16,7 @@ public class CorpMenu {
 		System.out.println("Add Recipe to corp");
 		Scanner reader = new Scanner(System.in);
 		System.out.println("Enter recipe name");
-		String name = reader.next();
+		String name = reader.nextLine();
 		System.out.println("Enter recipe price");
 		float price = reader.nextFloat();
 		System.out.println("Enter recipe ingredients");
@@ -24,6 +24,9 @@ public class CorpMenu {
 
 		Recipe recipe = new Recipe(name, price,  ingredients);
 		try {
+			if (this.recipes == null) {
+				recipes = new ArrayList<>();
+			}
 			this.recipes.add(recipe);
 			return true;
 		} catch (Exception e) {
@@ -42,7 +45,7 @@ public class CorpMenu {
 		System.out.println("Remove recipe");
 		System.out.println("Enter recipe name");
 		Scanner reader = new Scanner(System.in);
-		String recipeName = reader.next();
+		String recipeName = reader.nextLine();
 		Recipe recipeToRemove = this.recipes.stream().filter(r -> r.getName() == recipeName).findFirst().orElse(null);
 		if(recipeToRemove == null) {
 			System.out.println("Recipe exists already.");
@@ -59,13 +62,16 @@ public class CorpMenu {
 	private List<Ingredient> captureRecipeIngredients() {
 		int addIngredientOption = 1;
 		List<Ingredient> ingredients = new ArrayList<>();
-		Scanner reader = new Scanner(System.in);
+		String name;
+		int count;
+
 		while (addIngredientOption == 1) {
+			Scanner reader = new Scanner(System.in);
 			System.out.println("Enter ingredient");
 			System.out.println("Enter name");
-			String name = reader.next();
+			name = reader.nextLine();
 			System.out.println("Enter quantity needed for recipe");
-			int count = reader.nextInt();
+			count = reader.nextInt();
 			Ingredient ingredient = new Ingredient(name, 0.0);
 			for (int i = 0; i < count; i++) {
 				ingredients.add(ingredient);
@@ -88,7 +94,7 @@ public class CorpMenu {
 
 		switch (option) {
 			case 1 -> this.recipes.stream().forEach(i -> {
-				System.out.println(i.getName());
+				System.out.println(i.getName() + " Costs " + i.getPrice());
 			});
 			case 2 -> this.addRecipe();
 			case 3 -> this.removeRecipe();

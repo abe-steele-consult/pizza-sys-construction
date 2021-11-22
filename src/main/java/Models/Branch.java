@@ -14,6 +14,7 @@ public class Branch {
 	private Stock stockroom;
 	private List<Order> pastOrders= new ArrayList<Order>();
 	private BranchMenu menu=new BranchMenu();
+	private Employee manger;
 
 
 	public int getBranchId() {
@@ -35,7 +36,7 @@ public class Branch {
 	 * @param city
 	 * @param employeeList
 	 */
-	public Branch(List<Branch> branches, String state, String city, double revenue, List<Employee> employeeList) {
+	public Branch(List<Branch> branches, String state, String city, double revenue, List<Employee> employeeList, Employee manager) {
 		this.branchId = branches != null? 1: branches.size() + 1;
 		this.state = state;
 		this.city = city;

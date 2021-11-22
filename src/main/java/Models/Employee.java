@@ -15,6 +15,19 @@ public class Employee {
 	private String type;
 	private String role;
 
+	public enum employeeTypes {
+		manager,
+		waiter,
+		driver,
+		cashier;
+
+		public static void printEmployeeTypes() {
+			for (employeeTypes day : employeeTypes.values()) {
+				System.out.println(day);
+			}
+		}
+	}
+
 	/**
 	 * 
 	 * @param name Name of Employee
