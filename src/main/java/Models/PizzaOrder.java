@@ -206,7 +206,7 @@ public class PizzaOrder
     {
       case OrderType:
         setState(State.CustomerNotification);
-        System.out.println("telling customer to deliver order is ready for pick up");
+        System.out.println("telling customer to pickup order is ready for pick up");
         wasEventProcessed = true;
         break;
       default:
